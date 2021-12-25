@@ -1,0 +1,473 @@
+* {
+    margin-top: 0%;
+}
+:root {
+    --board-height: 850px;
+    --board-width: 1700px;
+    --tile-scale:40.5px;
+    --black: #252525;
+    --disabled: #414141;
+    --farm: #fffcf9;
+    --cell: #252525;
+    --dead: #cccccc;
+    --plots: #808080;
+    --spring: #7effa5;
+    --summer:#7ef4ff;
+    --autumn: #ff9c7e;
+    --winter: #ffffff;
+    --pit:#929292;
+    --transparentBlack: #0c0c0c7a;
+    /* --tile-border: 1px solid var(--black); */
+    --svgSize: 45px;
+    --fontsize: 2rem;
+}
+html {
+    /* position: relative; */
+    /* filter: blur(5px); */
+    user-select: none;
+    scroll-behavior: smooth;
+}
+#arrowsvg {
+    right: -35px;
+    padding-top: 0px;
+}
+#windmill {
+    height:75px; 
+    position: absolute; 
+    right: -60px; 
+    top: 15px;
+}
+#pause-canvas {
+    position: relative;
+    z-index: 1;
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+    background-color: var(--transparentBlack);
+    /* box-shadow: inset rgba(12, 12, 12, 0.486) 0px 0px 25px; */
+    border-radius: 3px;
+}
+.blur {
+    filter: blur(5px);
+}
+#settings {
+    height: 50px; 
+    width: auto; 
+    position: absolute; 
+    left: -55px; 
+    top: -10px
+}
+
+.card {
+    position: absolute;
+    top: -7%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding-top: 7px;
+    border: 2px solid var(--pit);
+    height: 100px;
+    border-radius: 4px;
+    background-color: var(--black);
+    box-shadow: var(--black) -0px -1px 19px;
+}
+.data-container {
+    z-index: -1;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    bottom: 55px;
+    width:  62px;
+    /* background-color: #929292; */
+    /* border: 3px solid #929292; */
+    height: 12px;
+    border-radius: 2px 2px 0px 0px; 
+    border-bottom: none; 
+    color: var(--pit); 
+    font-size: 10px;
+
+    animation-fill-mode: forwards;
+}
+
+#button {
+    display: flex;
+    height: 400px;
+    width: 400px;
+}
+#title {
+    z-index: -1;
+    font-size: 6rem;
+    font-weight: 900;
+    pointer-events: none;
+    position: absolute; 
+    left: -10px; 
+    top: -105px;
+    
+}
+#allVegetables {
+    width: 560px; 
+    left: 930px;
+}
+#allFruits {
+    width: 560px; 
+    left: 1510px;
+}
+
+
+#currentseason {
+    font-size: 3rem;
+}
+.rotate {
+    animation: rotation 5s infinite linear;
+    
+}
+body  {  
+    margin-top: 8%;
+    /* pointer-events: none; */
+    background-color: var(--black);
+    cursor: default;
+    display: flex; 
+    color: var(--pit);
+    flex-wrap: wrap;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+
+}
+
+#nextshape > svg {
+    height: 160px;
+    width: auto;
+}
+object {
+    fill: #2f2f2f;
+}
+img {
+    pointer-events: none;
+}
+svg {
+    pointer-events: none;
+    height: 25px;
+    width: 100px;
+}
+@keyframes raise-data {
+    from {
+        height: 12px;
+    }
+    to {
+        height: 50px;
+    }
+}
+@keyframes lower-data {
+    from {
+        height: 50px;
+    }
+    to {
+      height: 12px;
+    }
+}
+@keyframes rotation {
+    from {
+        /* transform: rotate(0deg); */
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+.throb {
+    animation: throb 1s linear;
+
+    transform:scale(.7);
+}
+@keyframes throb {
+    from {
+      transform:scale(.0);
+      fill: rgb(93, 93, 93);
+
+    }
+    to {
+      transform:scale(.7);
+    }
+}
+.allbuttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 800px;
+    right: 0%;
+    top: -50px;
+}
+#blades {
+    height:150px; 
+    position: absolute; 
+    top: -57px; 
+}
+#playbuttons {
+    position: absolute; 
+    left: -1035px; 
+    top: -40px;
+    z-index: 10;
+
+}
+#plants {
+    /* z-index: -1; */
+    top: -18px;
+    left: -450px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 65px;
+}
+svg {
+    fill: var(--pit);
+}
+
+.selectables {
+    height: var(--svgSize);
+    width: var(--svgSize);
+}
+
+button {
+    position: relative;
+    cursor:pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--svgSize);
+    width: var(--svgSize);
+    margin: 0% 0px 0% 0px;
+    outline: none;
+    background: none;
+    box-shadow: none;
+    border: none;
+}
+.blur-elements {
+    display: flex;
+    justify-content: flex-end;
+    /* width: 200px; */
+}
+.font-rem {
+    font-size: 2rem;
+}
+
+#farm-border {
+    box-shadow: var(--black) -0px -1px 19px;
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+    background-color: var(--pit);
+    border: 5px solid var(--pit);
+    border-radius: 5px;
+    width: var(--board-width);
+    height: var(--board-height);
+}
+#seasons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    font-size: var(--fontsize);
+    flex: 15%;
+    padding-right: 25px;
+    padding-top: 10px;
+}
+
+#stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: var(--fontsize);
+    flex: 15%;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+
+#farm {
+
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+
+}
+
+#grid {
+
+    /* box-shadow: var(--black) -0px -1px 19px; */
+    display: flex;
+    flex-wrap: wrap;
+
+
+    /* transform: rotate(45deg); */
+}
+
+.tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:var(--black);
+    width: var(--tile-scale);
+    height: var(--tile-scale);
+    /* border: 0px solid var(--black); */
+    margin: 1px;
+    /* box-shadow: black 0px 1px 2px; */
+
+}
+.parent {
+    background-color: var(--pit);
+
+    box-shadow: none;
+    /* border-radius: 50% 50% 50% 50%; */
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--plots);
+    border-right: 1px solid var(--plots);
+    margin: 1px 0px 0px 1px;
+}
+.child {
+    background:none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--black);
+    box-shadow: none;
+    border-bottom: 1px solid var(--plots);
+    border-right: 1px solid var(--plots);
+    margin: 1px 0px 0px 1px;
+}
+.utility {
+
+    background-color: var(--black);
+
+
+}
+.water {
+
+    background-color: var(--black);
+
+}
+.counting {
+    color: var(--cell);
+}
+
+@media only screen and (max-width: 1920px) {
+    :root {
+        --board-height: 600px;
+        --board-width: 1200px;
+        --tile-scale:28px;
+        --svgSize: 33px;
+        --fontsize: 1rem
+    }
+    .card {
+        position: absolute;
+        top: -7%;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        padding-top: 7px;
+        border: 2px solid var(--pit);
+        height: 100px;
+        border-radius: 4px;
+        background-color: var(--black);
+        box-shadow: var(--black) -0px -1px 19px;
+    }
+    .data-container {
+        z-index: -1;
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-content: center;
+        bottom: 42px;
+        width:  47px;
+        /* background-color: #929292; */
+        /* border: 3px solid #929292; */
+        height: 12px;
+        border-radius: 2px 2px 0px 0px; 
+        border-bottom: none; 
+        color: var(--pit); 
+        font-size: 10px;
+    
+        animation-fill-mode: forwards;
+    }
+
+    /* #blades {
+        position: absolute; 
+        height:150px; 
+        top: -57px;
+        right: -27.6px; 
+    } */
+    #windmill {
+        height:75px; 
+        position: absolute; 
+        right: -54px; 
+        top: 15px;
+    }
+    #title {
+        z-index: -1;
+        font-size: 4rem;
+        font-weight: 900;
+        pointer-events: none;
+        position: absolute; 
+        left: -5px; 
+        top: -70px;
+        
+    }
+    #allVegetables {
+        width: 400px; 
+        left: 693px;
+    }
+    #allFruits {
+        width: 400px; 
+        left: 1103px;
+    }
+    #playbuttons {
+        position: absolute; 
+        left: -530px; 
+        top: -40px;
+        z-index: 10;
+    
+    }
+    #settings {
+        height: 65px; 
+        width: 55px; 
+        position: absolute; 
+        left: -50px; 
+        top: -10px
+    }
+    .test {
+        background-color: #7ef4ff;
+    }
+    #currentseason {
+        font-size: 2rem;
+    }
+    #arrowsvg {
+        right: -4px;
+        width: 80%;
+        height: 80%;
+    }
+    .child {
+        font-size: 1rem;
+    }
+    @keyframes raise-data {
+        from {
+            height: 12px;
+        }
+        to {
+            height: 45px;
+        }
+    }
+    @keyframes lower-data {
+        from {
+            height: 45px;
+        }
+        to {
+          height: 12px;
+        }
+    }
+  }
