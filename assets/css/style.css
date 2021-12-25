@@ -470,4 +470,154 @@ button {
           height: 12px;
         }
     }
+    @media only screen and (max-width: 3024px) {
+
+        :root {
+            --board-height: 550px;
+            --board-width: 1100px;
+            --tile-scale:25.5px;
+            --svgSize: 33px;
+            --fontsize: .6rem
+        }
+        .card {
+            position: absolute;
+            top: -8%;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding-top: 7px;
+            border: 2px solid var(--pit);
+            height: 100px;
+            border-radius: 4px;
+            background-color: var(--black);
+            box-shadow: var(--black) -0px -1px 19px;
+        }
+        .data-container {
+            z-index: -1;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-content: center;
+            bottom: 42px;
+            width:  45px;
+            /* background-color: #929292; */
+            /* border: 3px solid #929292; */
+            height: 12px;
+            border-radius: 2px 2px 0px 0px; 
+            border-bottom: none; 
+            color: var(--pit); 
+            font-size: 9ƒpx;
+        
+            animation-fill-mode: forwards;
+        }
+    
+        /* #blades {
+            position: absolute; 
+            height:150px; 
+            top: -57px;
+            right: -27.6px; 
+        } */
+        #windmill {
+            height:75px; 
+            position: absolute; 
+            right: -54px; 
+            top: 15px;
+        }
+        #title {
+            z-index: -1;
+            font-size: 3rem;
+            font-weight: 900;
+            pointer-events: none;
+            position: absolute; 
+            left: -5px; 
+            top: -55px;
+            
+        }
+        #allVegetables {
+            width: 370px; 
+            left: 460px;
+        }
+        #allFruits {
+            width: 370px; 
+            left: 860px;
+        }
+        #playbuttons {
+            position: absolute; 
+            left: -440px; 
+            top: -40px;
+            z-index: 10;
+        
+        }
+        #settings {
+            height: 65px; 
+            width: 55px; 
+            position: absolute; 
+            left: -50px; 
+            top: -10px
+        }
+        .test {
+            background-color: #7ef4ff;
+        }
+        #currentseason {
+            font-size: 2rem;
+        }
+        #arrowsvg {
+            right: -4px;
+            width: 80%;
+            height: 80%;
+        }
+        .child {
+            font-size: 1rem;
+        }
+        @keyframes raise-data {
+            from {
+                height: 12px;
+            }
+            to {
+                height: 45px;
+            }
+        }
+        @keyframes lower-data {
+            from {
+                height: 45px;
+            }
+            to {
+              height: 12px;
+            }
+        }
+        #farm-border {
+            box-shadow: var(--black) -0px -1px 19px;
+            display: flex;
+            justify-content: center;
+            padding: 0px;
+            background-color: var(--pit);
+            border: 5px solid var(--pit);
+            border-radius: 5px;
+            width: var(--board-width);
+            height: var(--board-height);
+        }
+        #stats {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            font-size: var(--fontsize);
+            flex: 1;
+            padding-left: 20px;
+            padding-top: 10px;
+        }
+        #seasons {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-start;
+            font-size: var(--fontsize);
+            flex: 1;
+            padding-right: 25px;
+            padding-top: 10px;
+        }
+
+    }
+    
+
   }
